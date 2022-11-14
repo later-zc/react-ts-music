@@ -5,8 +5,8 @@ interface IProps {
   children?: ReactNode
 }
 
-const Download: FC<IProps> = () => {
-  return <div>Download</div>
+const Focus: FC<IProps> = () => {
+  return <div>Focus</div>
 }
 
-export default memo(Download)
+export default memo(Focus)
