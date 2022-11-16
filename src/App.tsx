@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react'
 import { Link, useRoutes } from 'react-router-dom'
-import { shallowEqual } from 'react-redux'
 import routes from './router'
-import { useAppSelector } from './store'
+import { useAppSelector, useAppDispatch, appShallowEqual } from './store'
+import { changeNumAction } from './store/modules/counter'
 // import { RootStateType } from './store'
 // import store from './store'
 
@@ -14,8 +14,11 @@ function App() {
     (state) => ({
       counter: state.counter.num
     }),
-    shallowEqual
+    appShallowEqual
   )
+
+  const dispatch = useAppDispatch()
+  const handleChangeNum = () => dispatch(changeNumAction(20))
 
   return (
     <div className="App">
@@ -25,7 +28,7 @@ function App() {
         <Link to="/focus">关注</Link>
         <Link to="/download">下载客户端</Link>
       </div>
-      <h2>当前计数：{state.counter}</h2>
+      <h2 onClick={handleChangeNum}>当前计数：{state.counter}</h2>
       <Suspense fallback="">{useRoutes(routes)}</Suspense>
     </div>
   )

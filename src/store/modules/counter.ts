@@ -6,7 +6,13 @@ const counterSilce = createSlice({
     num: 100,
     age: 18
   },
-  reducers: {}
+  reducers: {
+    changeNumAction(state, { payload }) {
+      state.num = payload
+    }
+  }
 })
+
+export const { changeNumAction } = counterSilce.actions
 
 export default counterSilce.reducer
