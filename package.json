@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.0.0",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
     "craco-less": "^2.1.0-alpha.0",
@@ -54,6 +55,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "styled-components": "^5.3.6"
   }
 }

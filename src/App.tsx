@@ -1,8 +1,9 @@
 import React, { Suspense } from 'react'
-import { Link, useRoutes } from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
+import AppFooter from './components/app-footer'
+import AppHeader from './components/app-header'
 import routes from './router'
-import { useAppSelector, useAppDispatch, appShallowEqual } from './store'
-import { changeNumAction } from './store/modules/counter'
+
 // import { RootStateType } from './store'
 // import store from './store'
 
@@ -10,26 +11,12 @@ import { changeNumAction } from './store/modules/counter'
 // type RootStateType = ReturnType<GetStateFnType>
 
 function App() {
-  const state = useAppSelector(
-    (state) => ({
-      counter: state.counter.num
-    }),
-    appShallowEqual
-  )
-
-  const dispatch = useAppDispatch()
-  const handleChangeNum = () => dispatch(changeNumAction(20))
-
   return (
     <div className="App">
-      <div className="nav">
-        <Link to="/discover">发现音乐</Link>
-        <Link to="/mine">我的音乐</Link>
-        <Link to="/focus">关注</Link>
-        <Link to="/download">下载客户端</Link>
-      </div>
-      <h2 onClick={handleChangeNum}>当前计数：{state.counter}</h2>
+      <AppHeader />
+
       <Suspense fallback="">{useRoutes(routes)}</Suspense>
+      <AppFooter />
     </div>
   )
 }

@@ -13,6 +13,10 @@ const store = configureStore({
   }
 })
 
+// const state = store.getState()
+// type StateType = typeof state
+
+// 等价于上面注释的写法
 type GetStateFnType = typeof store.getState
 export type RootStateType = ReturnType<GetStateFnType>
 type DispatchType = typeof store.dispatch

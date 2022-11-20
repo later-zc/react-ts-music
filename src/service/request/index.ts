@@ -11,7 +11,7 @@ class Request {
     // requset顺序：越早添加，越晚执行（早添晚执）
     // response顺序：越早添加，越早执行（早添早执）
     // 这是axios内部规定的
-    const res1 = this.instance.interceptors.request.use(
+    this.instance.interceptors.request.use(
       (config) => {
         console.log('全局请求成功拦截')
         return config
@@ -22,7 +22,7 @@ class Request {
       }
     )
 
-    const res2 = this.instance.interceptors.response.use(
+    this.instance.interceptors.response.use(
       (res) => {
         console.log('全局响应成功拦截')
         return res.data
