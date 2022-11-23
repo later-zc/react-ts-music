@@ -1,58 +1,23 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, useEffect } from 'react'
 import type { FC, ReactNode } from 'react'
-import request from '@/service'
+import { useAppDispatch } from '@/store'
+import { fetchBannerDataAction } from './store/recommend'
+import TopBanner from './c-cpns/top-banner'
 
 interface IProps {
   children?: ReactNode
 }
 
-interface ICount {
-  imageUrl: string
-  targetId: number
-  adid: any
-  targetType: number
-  titleColor: string
-  typeTitle: string
-  url: any
-  exclusive: boolean
-  monitorImpress: any
-  monitorClick: any
-  monitorType: any
-  monitorImpressList: any
-  monitorClickList: any
-  monitorBlackList: any
-  extMonitor: any
-  extMonitorInfo: any
-  adSource: any
-  adLocation: any
-  adDispatchJson: any
-  encodeId: string
-  program: any
-  event: any
-  video: any
-  song: any
-  scm: string
-  bannerBizType: string
-}
-
 const Recommend: FC<IProps> = () => {
-  const [count, setCount] = useState<ICount[]>([])
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    request
-      .get({
-        url: '/banner'
-      })
-      .then((res) => {
-        setCount(res.banners)
-      })
+    dispatch(fetchBannerDataAction())
   }, [])
 
   return (
     <div>
-      {count.map((item, index) => (
-        <div key={index}>{item.imageUrl}</div>
-      ))}
+      <TopBanner />
     </div>
   )
 }
