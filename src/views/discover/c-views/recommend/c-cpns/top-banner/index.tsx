@@ -26,6 +26,11 @@ const TopBanner: FC<IProps> = () => {
     setCurrentIndex(current)
   }
 
+  function handleBeforeChange(from: any, to: any) {
+    console.log('from: ', from)
+    console.log('to: ', to)
+  }
+
   function handlePreClick() {
     bannerRef.current?.prev()
   }
@@ -38,11 +43,7 @@ const TopBanner: FC<IProps> = () => {
   if (bgImgUrl) bgImgUrl += '?imageView&blur=40x20'
 
   return (
-    <BannerWrapper
-      style={{
-        background: `url(${bgImgUrl}) center / 6000px`
-      }}
-    >
+    <BannerWrapper bgImgUrl={bgImgUrl}>
       <div className="banner wrap-v2">
         <BannerLeft>
           <Carousel
@@ -50,8 +51,9 @@ const TopBanner: FC<IProps> = () => {
             autoplay
             dots={false}
             autoplaySpeed={3500}
-            effect={'fade'}
+            // effect={'fade'}
             afterChange={handleAfterChange}
+            beforeChange={handleBeforeChange}
           >
             {banners.map((item) => (
               <div className="banner-item" key={item.imageUrl}>

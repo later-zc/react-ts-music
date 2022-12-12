@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 
-export const BannerWrapper = styled.div`
+interface BannerProps {
+  bgImgUrl?: string
+}
+
+export const BannerWrapper = styled.div<BannerProps>`
+  background: url(${(props) => props.bgImgUrl});
   .banner {
     display: flex;
     height: 270px;
