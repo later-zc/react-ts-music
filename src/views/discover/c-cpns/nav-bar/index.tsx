@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import type { FC, ReactNode } from 'react'
 import { NavWrapper } from './style'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { discoverMenu } from '@/assets/data/local_data'
 
 interface IProps {
@@ -14,7 +14,7 @@ const NavBar: FC<IProps> = () => {
       <div className="nav wrap-v1">
         {discoverMenu.map((item) => (
           <div className="item" key={item.title}>
-            <Link to={item.link}>{item.title}</Link>
+            <NavLink to={item.link}>{item.title}</NavLink>
           </div>
         ))}
       </div>

@@ -1,11 +1,10 @@
 import React, { memo, useRef, useState } from 'react'
 import type { FC, ReactNode, ElementRef } from 'react'
-import { shallowEqual } from 'react-redux'
 import { Carousel } from 'antd'
 import classNames from 'classnames'
 
 import { BannerControl, BannerLeft, BannerRight, BannerWrapper } from './style'
-import { useAppSelector } from '@/store'
+import { appShallowEqual, useAppSelector } from '@/store'
 
 interface IProps {
   children?: ReactNode
@@ -19,16 +18,11 @@ const TopBanner: FC<IProps> = () => {
     (state) => ({
       banners: state.recommend.banners
     }),
-    shallowEqual
+    appShallowEqual
   )
 
   function handleAfterChange(current: number) {
     setCurrentIndex(current)
-  }
-
-  function handleBeforeChange(from: any, to: any) {
-    console.log('from: ', from)
-    console.log('to: ', to)
   }
 
   function handlePreClick() {
@@ -53,7 +47,6 @@ const TopBanner: FC<IProps> = () => {
             autoplaySpeed={3500}
             // effect={'fade'}
             afterChange={handleAfterChange}
-            beforeChange={handleBeforeChange}
           >
             {banners.map((item) => (
               <div className="banner-item" key={item.imageUrl}>
