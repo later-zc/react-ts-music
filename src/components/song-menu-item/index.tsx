@@ -25,7 +25,7 @@ const SongMenuItem: FC<IProps> = (props) => {
           </div>
         </div>
       </div>
-      <div className="bottom">{itemData.name}</div>
+      <div className="bottom text-2line-hide">{itemData.name}</div>
     </MenuItemWrapper>
   )
 }

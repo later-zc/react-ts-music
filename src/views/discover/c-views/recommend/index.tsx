@@ -3,14 +3,14 @@ import type { FC, ReactNode } from 'react'
 
 import { useAppDispatch } from '@/store'
 import {
-  fetchBannerDataAction,
-  fetchHotRecommendAction,
-  fetchNewAlbumAction
+  fetchRecommendDataAction,
+  fetchRankingDataAction
 } from './store/recommend'
 import TopBanner from './c-cpns/top-banner'
 import { RecommendWrapper } from './style'
 import HotRecommend from './c-cpns/hot-recommend'
 import NewAblum from './c-cpns/new-ablum'
+import TopRanking from './c-cpns/top-ranking'
 
 interface IProps {
   children?: ReactNode
@@ -20,9 +20,8 @@ const Recommend: FC<IProps> = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchBannerDataAction())
-    dispatch(fetchHotRecommendAction())
-    dispatch(fetchNewAlbumAction())
+    dispatch(fetchRecommendDataAction())
+    dispatch(fetchRankingDataAction())
   }, [])
 
   return (
@@ -32,6 +31,7 @@ const Recommend: FC<IProps> = () => {
         <div className="left">
           <HotRecommend />
           <NewAblum />
+          <TopRanking />
         </div>
         <div className="right">right</div>
       </div>

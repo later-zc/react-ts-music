@@ -62,3 +62,16 @@ button {
 .sprite_playlist {
   background: url(../img/playlist_sprite.png) no-repeat 0 9999px;
 }
+
+/* 文字两行溢出隐藏 */
+.text-2line-hide {
+  -webkit-line-clamp: 2;
+  .text-hide();
+}
+
+.text-hide {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}

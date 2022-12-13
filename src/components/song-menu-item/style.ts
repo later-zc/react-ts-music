@@ -52,8 +52,9 @@ export const MenuItemWrapper = styled.div`
   }
 
   .bottom {
-    font-size: 14px;
-    color: #000;
     margin-top: 5px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #000;
   }
 `
