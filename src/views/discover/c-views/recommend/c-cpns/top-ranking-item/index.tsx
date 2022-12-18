@@ -3,7 +3,7 @@ import type { FC, ReactNode } from 'react'
 import { RankingItemWrapper } from './style'
 import { getImgSize } from '@/utils/format'
 import { useAppDispatch } from '@/store'
-// import { fetchCurrentSongAction } from '@/views/player/store/player'
+import { fetchCurrentSongAction } from '@/views/player/store/player'
 
 interface IProps {
   children?: ReactNode
@@ -16,7 +16,7 @@ const TopRankingItem: FC<IProps> = (props) => {
 
   const dispatch = useAppDispatch()
   function handlePlayClick(id: number) {
-    // dispatch(fetchCurrentSongAction(id))
+    dispatch(fetchCurrentSongAction(id))
   }
 
   return (
